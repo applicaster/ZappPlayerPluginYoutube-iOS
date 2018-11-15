@@ -83,11 +83,11 @@ class APPlugablePlayerYouTubeViewController: UIViewController, YTPlayerViewDeleg
     func addObservers(){
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleWhenPlayingInFullScreen),
-                                               name:NSNotification.Name.UIWindowDidBecomeVisible,
+                                               name:UIWindow.didBecomeVisibleNotification,
                                                object: self.player?.window)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleWhenDoneButtonClick),
-                                               name:NSNotification.Name.UIWindowDidBecomeHidden,
+                                               name:UIWindow.didBecomeHiddenNotification,
                                                object: self.player?.window)
     }
     
