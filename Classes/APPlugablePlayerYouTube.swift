@@ -17,9 +17,9 @@ public class APPlugablePlayerYouTube: APPlugablePlayerBase
 {
     
     static let interfaceOrientationJsonValues: Dictionary<String, UIInterfaceOrientationMask> = [
-        "Landscape" : UIInterfaceOrientationMask.landscape,
-        "Portrait" : UIInterfaceOrientationMask.portrait,
-        "All" : UIInterfaceOrientationMask.all
+        "Landscape" : .landscape,
+        "Portrait" : .portrait,
+        "All" : .all
     ]
     
     // MARK: - Properties
