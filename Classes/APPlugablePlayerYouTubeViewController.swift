@@ -15,8 +15,11 @@ class APPlugablePlayerYouTubeViewController: UIViewController, YTPlayerViewDeleg
     var player: YTPlayerView?
     var playItem: ZPPlayable?
     
+    // the default set to .landscape and you can change it to any value you need in the plugin configuration.
+    public var allowedInterfaceOrientations : UIInterfaceOrientationMask = UIInterfaceOrientationMask.landscape
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.landscape
+        return self.allowedInterfaceOrientations
     }
     
     // MARK: - Init

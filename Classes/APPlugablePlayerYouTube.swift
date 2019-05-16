@@ -16,6 +16,12 @@ let youtubeIDKey = "youtube_id"
 public class APPlugablePlayerYouTube: APPlugablePlayerBase
 {
     
+    static let interfaceOrientationJsonValues: Dictionary<String, UIInterfaceOrientationMask> = [
+        "Landscape" : .landscape,
+        "Portrait" : .portrait,
+        "All" : .all
+    ]
+    
     // MARK: - Properties
     var playerViewController: APPlugablePlayerYouTubeViewController?
     
@@ -38,6 +44,13 @@ public class APPlugablePlayerYouTube: APPlugablePlayerBase
         let instance = APPlugablePlayerYouTube()
         instance.playerViewController = APPlugablePlayerYouTubeViewController()
         
+        if let configurationJSON = configurationJSON,
+            let interfaceOrientationJsonValue = configurationJSON.object(forKey: "interface_orientation") as? String {
+            if let interfaceOrientation = interfaceOrientationJsonValues[interfaceOrientationJsonValue] {
+                instance.playerViewController?.allowedInterfaceOrientations = interfaceOrientation
+            }
+        }
+
         let playerVariables: [String : Any] = [
             "controls":1,
             "playsinline":0,
