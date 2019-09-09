@@ -50,7 +50,7 @@ public class APPlugablePlayerYouTube: APPlugablePlayerBase
                 instance.playerViewController?.allowedInterfaceOrientations = interfaceOrientation
             }
         }
-
+        
         let playerVariables: [String : Any] = [
             "controls":1,
             "playsinline":0,
@@ -67,7 +67,7 @@ public class APPlugablePlayerYouTube: APPlugablePlayerBase
                 instance.playerViewController?.player?.load(withPlaylistId: videoPath, playerVars: playerVariables)
             }
             else{
-                 instance.playerViewController?.player?.load(withVideoId: videoPath, playerVars: playerVariables)
+                instance.playerViewController?.player?.load(withVideoId: videoPath, playerVars: playerVariables)
             }
             instance.playerViewController?.playItem = items?.first
         }
@@ -85,7 +85,7 @@ public class APPlugablePlayerYouTube: APPlugablePlayerBase
     }
     
     public static func pluggablePlayerType() -> ZPPlayerType {
-        return .playerYoutube
+        return .undefined
     }
     
     //--------------------------- Available only in Full screen mode ---------------------------//
@@ -116,5 +116,20 @@ public class APPlugablePlayerYouTube: APPlugablePlayerBase
     
     public override func pluggablePlayerIsPlaying() -> Bool {
         return (self.playerViewController?.player?.playbackRate() == 1.0)
+    }
+    
+    public func pluggablePlayerAnalyticsParams(for atomEntryPlayable: ZPAtomEntryPlayableProtocol) -> [String:Any] {
+        var params: [String:Any] = [:]
+        
+        params["VOD Type"] = "YouTube"
+        
+        if let contentType = atomEntryPlayable.contentType(),
+            contentType == "youtube-id",
+            let urlPath = atomEntryPlayable.getContentVideoURLPath() {
+            
+            params["YouTube ID"] = urlPath
+        }
+        
+        return params
     }
 }

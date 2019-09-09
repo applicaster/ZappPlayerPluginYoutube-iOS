@@ -8,23 +8,34 @@
   },
   "author_name": "Alex Zchut",
   "author_email": "a.levin@applicaster.com",
-  "manifest_version": "6.0.0",
+  "manifest_version": "6.2.0",
   "name": "Youtube Player",
   "description": "Applicaster YouTube Plugable player",
   "identifier": "Youtube-iOS",
   "type": "player",
-  "min_zapp_sdk": "10.0.0-Dev",
+  "min_zapp_sdk": "12.2.0-Dev",
   "platform": "ios",
   "ui_builder_support": true,
   "dependency_repository_url": [
     "https://github.com/applicaster/ZappPlayerPluginYoutube-iOS.git"
   ],
-  "whitelisted_account_ids": [
-    
-  ],
+  "whitelisted_account_ids": [],
   "dependency_name": "ZappPlayerPluginYoutube",
-  "dependency_version": "6.0.0",
+  "dependency_version": "6.2.0",
   "custom_configuration_fields": [
-    
+    {
+      "type": "dropdown",
+      "key": "interface_orientation",
+      "options": [
+        "Landscape",
+        "Portrait",
+        "All"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "item_content_type",
+      "default": "youtube-id"
+    }
   ]
 }
