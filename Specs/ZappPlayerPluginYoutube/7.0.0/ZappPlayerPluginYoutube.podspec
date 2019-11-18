@@ -35,7 +35,7 @@ TODO: Add long description of the pod here.
 
   s.xcconfig =  { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
                 'ENABLE_BITCODE' => 'YES',
-                'SWIFT_VERSION' => '5.1',
+                'SWIFT_VERSION' => '5.0',
                 'OTHER_CFLAGS'  => '-fembed-bitcode'
               }
 
@@ -43,11 +43,4 @@ TODO: Add long description of the pod here.
   s.dependency 'ApplicasterSDK'
   s.dependency 'ZappPlugins'
 
-  # s.resource_bundles = {
-  #   'ZappPlayerPluginYoutube' => ['ZappPlayerPluginYoutube/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

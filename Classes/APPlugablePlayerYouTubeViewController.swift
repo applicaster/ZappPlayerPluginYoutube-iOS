@@ -59,9 +59,9 @@ class APPlugablePlayerYouTubeViewController: UIViewController, YTPlayerViewDeleg
      // MARK: - YTPlayerDelegate
     public func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         self.player?.playVideo()
-        APAnalyticsManager.trackEvent("Play VOD Item",
-                                      withParameters: self.playItem?.analyticsParams(),
-                                      timed: true)
+        ZAAppConnector.sharedInstance().analyticsDelegate?.trackEvent(name: "Play VOD Item",
+                                                                      parameters: self.playItem?.analyticsParams() as? [String: Any],
+                                                                      timed: true)
     }
     
     public func playerView(_ playerView: YTPlayerView, didChangeTo state: YTPlayerState)
@@ -78,8 +78,8 @@ class APPlugablePlayerYouTubeViewController: UIViewController, YTPlayerViewDeleg
     // MARK: - Private
     func finishPlayback()
     {
-        APAnalyticsManager.endTimedEvent("Play VOD Item",
-                                         withParameters: self.playItem?.analyticsParams())
+        ZAAppConnector.sharedInstance().analyticsDelegate?.endTimedEvent("Play VOD Item",
+                                                                         parameters: self.playItem?.analyticsParams() as? [String : Any])
         self.dismiss(animated: true, completion: nil)
     }
     
