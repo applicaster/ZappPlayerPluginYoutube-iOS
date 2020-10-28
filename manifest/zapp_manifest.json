@@ -1,19 +1,16 @@
 {
   "api": {
     "class_name": "APPlugablePlayerYouTube",
-    "modules": [
-      "ZappPlayerPluginYoutube",
-      "ZappPlayerPlugins"
-    ]
+    "modules": ["ZappPlayerPluginYoutube", "ZappPlayerPlugins"]
   },
   "author_name": "Alex Zchut",
-  "author_email": "a.levin@applicaster.com",
-  "manifest_version": "7.0.0",
+  "author_email": "a.zchut@applicaster.com",
+  "manifest_version": "7.1.0",
   "name": "Youtube Player",
   "description": "Applicaster YouTube Plugable player",
   "identifier": "Youtube-iOS",
   "type": "player",
-  "min_zapp_sdk": "13.0.0-Dev",
+  "min_zapp_sdk": "15.0.0-Dev",
   "platform": "ios",
   "ui_builder_support": true,
   "dependency_repository_url": [
@@ -21,21 +18,14 @@
   ],
   "whitelisted_account_ids": [],
   "dependency_name": "ZappPlayerPluginYoutube",
-  "dependency_version": "7.0.0",
+  "dependency_version": "7.1.0",
   "custom_configuration_fields": [
     {
       "type": "dropdown",
       "key": "interface_orientation",
-      "options": [
-        "Landscape",
-        "Portrait",
-        "All"
-      ]
+      "options": ["Landscape", "Portrait", "All"]
     },
-    {
-      "type": "text",
-      "key": "item_content_type",
-      "default": "youtube-id"
-    }
-  ]
+    { "type": "text", "key": "item_content_type", "default": "youtube-id" }
+  ],
+  "targets": ["mobile"]
 }

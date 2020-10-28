@@ -28,10 +28,6 @@ class APPlugablePlayerYouTubeViewController: UIViewController, YTPlayerViewDeleg
         self.player = YTPlayerView(frame: self.view.bounds)
         self.player?.delegate = self
         
-        // YouTube Player doesnt handle PIP properly so disable it if in iOS 9
-        if #available(iOS 9.0, *) {
-            self.player?.webView?.allowsPictureInPictureMediaPlayback = false
-        }
         self.addObservers()
     }
     

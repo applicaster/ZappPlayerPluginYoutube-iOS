@@ -115,7 +115,15 @@ public class APPlugablePlayerYouTube: APPlugablePlayerBase
     }
     
     public override func pluggablePlayerIsPlaying() -> Bool {
-        return (self.playerViewController?.player?.playbackRate() == 1.0)
+        guard let playerView = self.playerViewController?.player else {
+            return false
+        }
+        
+        // ## can not be fetched immidiately as async func
+//        playerView.playbackRate({ (rate, error) in
+//            //
+//        })
+        return false
     }
     
     public func pluggablePlayerAnalyticsParams(for atomEntryPlayable: ZPAtomEntryPlayableProtocol) -> [String:Any] {
